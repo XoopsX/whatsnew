@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<{* $Id: whatsnew0_pda.html,v 1.1 2011/12/30 21:45:44 ohwada Exp $ *}>
+<title><{$site_name}></title>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta name='HandheldFriendly' content='True' />
+<meta name='PalmComputingPlatform' content='True' />
+</head>
+<body>
+<h3><a href="<{$site_url}>"><{$site_name}></a></h3>
+<ul>
+<{foreach item=line from=$whatsnew}>
+  <li><a href="<{$line.link}>"><{$line.title}></a> (<{$line.date_s}>) <br />
+  <{if $line.desc}>
+    <font size='-1'><{$line.desc}></font><br />
+  <{/if}>
+  <{if $line.image}>
+    <a href="<{$line.link}>">
+    <{if $line.width && $line.height}>
+      <img src="<{$line.image}>" width="<{$line.width}>" height="<{$line.height}>" border="0" alt="image" />
+    <{else}>
+      <img src="<{$line.image}>" border="0" alt="image" />
+    <{/if}>
+    </a><br /><br />
+  <{/if}>
+  </li>
+<{/foreach}>
+</ul>
+</body>
+</html>

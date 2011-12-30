@@ -1,0 +1,79 @@
+<{* $Id: whatsnew0_bop.html,v 1.1 2011/12/30 21:45:44 ohwada Exp $ *}>
+
+<h3 align='center'><{$module_name}></h3>
+
+<a href='rdf.php' target="_blank"><img src="images/rdf.png" alt="atom" /></a> 
+<a href='rss.php' target="_blank"><img src="images/rss.png" alt="rss" /></a> 
+<a href='atom.php' target="_blank"><img src="images/atom.png" alt="atom" /></a> 
+<a href='pda.php' target="_blank"><img src="images/pda_blue.png" alt="pda" /></a> 
+<br /><br />
+
+<ul>
+<{foreach item=module from=$whatsnew.modules}>
+  <li><a href="#<{$module.mid}>"><{$module.mod_name}></a></li>
+<{/foreach}>
+</ul>
+<br />
+
+<{foreach item=module from=$whatsnew.modules}>
+  <a name="<{$module.mid}>"></a>
+  <div class="itemHead">
+  <{if $module.mod_link}>
+    <a href="<{$module.mod_link}>">
+  <{/if}>
+  <span class="itemTitle"><img src='<{$module.mod_icon_link}>' alt='<{$module.mod_name}>'> <{$module.mod_name}></span>
+  <{if $module.mod_link}>
+    </a>
+  <{/if}>
+  </div>
+
+  <div class="itemBody">
+  <table class="outer" cellspacing="1">
+  <tr class="odd">
+  <th align="center"><b><{$whatsnew.lang_cat}></b></th>
+  <th align="center"><b><{$whatsnew.lang_title}></b></th>
+  <th align="center"><b><{$whatsnew.lang_user}></b></th>
+  <th align="center"><b><{$whatsnew.lang_hits}></b></th>
+  <th align="center"><b><{$whatsnew.lang_replies}></b></th>
+  <th align="center"><b><{$whatsnew.lang_date}></b></th>
+  </tr>
+  <{foreach item=line from=$module.lines}>
+    <tr class="odd">
+    <td style="vertical-align:middle;">
+    <{if $line.cat_name && $line.cat_link }>
+      <a href="<{$line.cat_link}>"><{$line.cat_name}></a>
+    <{else}>
+      <{$line.mod_name}>
+    <{/if}>
+    </td>
+    <td style="vertical-align:middle;"><a href="<{$line.link}>"><{$line.title}></a><{$line.extra}></td>
+    <td align="center" style="vertical-align:middle;">
+    <{if ($line.uid > 0) && $line.user }>
+      <a href="<{$xoops_url}>/userinfo.php?uid=<{$line.uid}>"><{$line.user_name}></a>
+    <{else}>
+      <{$line.user}>
+    <{/if}>
+    </td>
+    <td align="center" style="vertical-align:middle;"><{$line.hits}></td>
+    <td align="center" style="vertical-align:middle;"><{$line.replies}></td>
+    <td align="left"   style="vertical-align:middle;"><{$line.date_l}></td>
+    </tr>
+    <{if $line.desc}>
+      <tr class="even">
+      <td align="left" colspan="6">
+      <font size='-1'><{$line.desc}></font>
+      </td>
+      </tr>
+    <{/if}>
+    <{/foreach}>
+  </table>
+  </div>
+  <br />
+<{/foreach}>
+
+<hr />
+<font size='-1'>execution time <{$time_excute}> sec </font><br />
+<div align='right'><a href='<{$happy_linux_url}>' target='_blank'><font size='-1'>Powered by Happy Linux</font></a></div>
+<{if $is_module_admin }>
+	<a href="./admin/index.php">go to admin cp</a>
+<{/if}>

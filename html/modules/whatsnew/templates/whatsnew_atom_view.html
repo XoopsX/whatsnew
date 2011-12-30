@@ -1,0 +1,91 @@
+<table cellspacing="1" class="outer">
+  <tr>
+    <th colspan="2"><a href="<{$feed.link_alternate}>" target="_blank"><font size='+1' color='white'><{$feed.title}></font></a></th>
+  </tr>
+  <tr>
+    <td valign="top" class="head" width="100"><{$lang_id}></td>
+    <td class="even"><{$feed.id|default:"&nbsp;"}></td>
+  </tr>
+  <tr>
+    <td valign="top" class="head"><{$lang_updated}></td>
+    <td class="odd"><{$feed.updated|default:"&nbsp;"}></td>
+  </tr>
+  <tr>
+    <td valign="top" class="head"><{$lang_generator}></td>
+    <td class="even"><{$feed.generator|default:"&nbsp;"}></td>
+  </tr>
+  <tr>
+    <td valign="top" class="head"><{$lang_author_name}></td>
+    <td class="odd"><{$feed.author_name|default:"&nbsp;"}></td>
+  </tr>
+  <tr>
+    <td valign="top" class="head"><{$lang_copyright}></td>
+    <td class="even"><{$feed.rights|default:"&nbsp;"}></td>
+  </tr>
+  <{section name=i loop=$entrys}>
+  <{if $entrys[i].title != ""}>
+  <tr class="head">
+    <td colspan="2"><a id="<{$entrys[i].link}>"></a><a href="<{$entrys[i].link}>" target="_blank"><font size='+1'><{$entrys[i].title}></font></a></td>
+  </tr>
+  <{/if}>
+    <{if $entrys[i].id != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_id}></td>
+      <td class="odd" colspan="1"><{$entrys[i].id}>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].subject != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_category}></td>
+      <td class="odd" colspan="1"><{$entrys[i].category}>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].updated != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_updated}></td>
+      <td class="odd" colspan="1"><{$entrys[i].updated}></td>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].published != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_published}></td>
+      <td class="odd" colspan="1"><{$entrys[i].published}></td>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].author_name != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_author_name}></td>
+      <td class="odd" colspan="1"><{$entrys[i].author_name}></td>
+    </tr>
+    <{/if}>
+   <{if $entrys[i].author_uri != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_author_uri}></td>
+      <td class="odd" colspan="1"><{$entrys[i].author_uri}></td>
+    </tr>
+    <{/if}>
+   <{if $entrys[i].author_email != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_author_email}></td>
+      <td class="odd" colspan="1"><{$entrys[i].author_email}></td>
+    </tr>
+    <{/if}>
+   <{if $entrys[i].category != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_category}></td>
+      <td class="odd" colspan="1"><{$entrys[i].category}></td>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].summary != ""}>
+    <tr>
+      <td class="even" valign="top"><{$lang_summary}></td>
+      <td class="odd" colspan="1" ><{$entrys[i].summary}></td>
+    </tr>
+    <{/if}>
+    <{if $entrys[i].content != ""}>
+    <tr>
+       <td colspan="2"><{$entrys[i].content}></td>
+    </tr>
+    <{/if}>
+  <{/section}>
+</table>
