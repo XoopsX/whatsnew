@@ -1,5 +1,5 @@
 <?php
-// $Id: whatsnew_version.php,v 1.1 2011/12/30 21:45:44 ohwada Exp $
+// $Id: whatsnew_version.php,v 1.2 2011/12/31 02:08:47 ohwada Exp $
 
 // 2007-05-12 K.OHWADA
 // module dupulication
@@ -17,8 +17,8 @@
 // --- define version begin ---
 if( !defined('_WHATSNEW_VERSION') ) 
 {
-	define('_WHATSNEW_VERSION', '2.51');
-	define('_WHATSNEW_HAPPY_LINUX_VERSION', '1.50');
+	define('_WHATSNEW_VERSION', '2.60');
+	define('_WHATSNEW_HAPPY_LINUX_VERSION', '1.60');
 }
 // --- define version end ---
 

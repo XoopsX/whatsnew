@@ -1,5 +1,8 @@
 <?php
-// $Id: whatsnew_http_client.php,v 1.1 2011/12/30 21:45:52 ohwada Exp $
+// $Id: whatsnew_http_client.php,v 1.2 2011/12/31 02:08:47 ohwada Exp $
+
+// 2011-12-31 K.OHWADA
+// PHP 5.3 : ereg
 
 // 2005-09-29 K.OHWADA
 // change file name & class name
@@ -242,14 +245,14 @@ function stripHttp($data='')
 
 	// see if we got an HTTP 200 OK, else bomb
 	// but only do this if we're using the HTTP protocol.
-	if(ereg("^HTTP",$data) && !ereg("^HTTP/[0-9\.]+ 200 ", $data))
+	if(preg_match("/^HTTP/i",$data) && !preg_match("/^HTTP/[0-9\.]+ 200 /i", $data))
 	{
 		$errstr = substr($data, 0, strpos($data, "\n")-1);
 		return $this->set_return_code($this->http_error['code_error'], $this->http_errmsg['code_error']. ' (' . $errstr . ')');
 	}
 
 	// separate HTTP headers from data
-	if (ereg("^HTTP", $data))
+	if (preg_match("/^HTTP/i", $data))
 	{
 		$ar = split("\r\n", $data);
 		while (($line = array_shift($ar)))

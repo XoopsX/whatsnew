@@ -1,5 +1,8 @@
 <?php
-// $Id: api_rdf.php,v 1.1 2011/12/30 21:45:45 ohwada Exp $
+// $Id: api_rdf.php,v 1.2 2011/12/31 02:08:47 ohwada Exp $
+
+// 2011-12-31 K.OHWADA
+// whatsnew_show_block.php -> whatsnew_show_block_handler.php
 
 // 2006-06-20 K.OHWADA
 // use constant WHATSNEW_ROOT_PATH
@@ -20,7 +23,7 @@ include_once XOOPS_ROOT_PATH.'/class/template.php';
 
 include_once WHATSNEW_ROOT_PATH."/include/whatsnew_version.php";
 include_once WHATSNEW_ROOT_PATH."/include/whatsnew_constant.php";
-include_once WHATSNEW_ROOT_PATH."/class/whatsnew_show_block.php";
+include_once WHATSNEW_ROOT_PATH."/class/whatsnew_show_block_handler.php";
 include_once WHATSNEW_ROOT_PATH."/class/whatsnew_show_main.php";
 include_once WHATSNEW_ROOT_PATH."/class/whatsnew_build_base.php";
 include_once WHATSNEW_ROOT_PATH."/class/whatsnew_build_rdf.php";

@@ -1,5 +1,8 @@
 <?php
-// $Id: whatsnew_show_block_handler.php,v 1.1 2011/12/30 21:45:54 ohwada Exp $
+// $Id: whatsnew_show_block_handler.php,v 1.2 2011/12/31 02:08:47 ohwada Exp $
+
+// 2010-04-25 Marijuana 
+// whatsnew_ping -> whatsnew_ping_handler
 
 // 2008-10-11 nao-pon
 // _get_template_filename()
@@ -290,8 +293,9 @@ function _refresh_ping()
 {
 	include_once XOOPS_ROOT_PATH.'/modules/'.$this->_DIRNAME.'/api/api_ping.php';
 
-	$ping =& whatsnew_ping::getInstance( $this->_DIRNAME );
-	$ping->send_ping();
+// whatsnew_ping -> whatsnew_ping_handler
+	$png = new whatsnew_ping_handler( $this->_DIRNAME );
+	$ping->send_pings();
 }
 
 // --- class end ---

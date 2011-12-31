@@ -1,5 +1,5 @@
 <?php
-// $Id: whatsnew_collect_plugins.php,v 1.1 2011/12/30 21:45:53 ohwada Exp $
+// $Id: whatsnew_collect_plugins.php,v 1.2 2011/12/31 02:08:47 ohwada Exp $
 
 // 2009-09-27 K.OHWADA
 // BUG: not show comment when guest

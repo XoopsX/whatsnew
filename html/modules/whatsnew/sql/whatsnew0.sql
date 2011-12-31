@@ -1,4 +1,7 @@
-# $Id: whatsnew0.sql,v 1.1 2011/12/30 21:45:42 ohwada Exp $
+# $Id: whatsnew0.sql,v 1.2 2011/12/31 02:08:47 ohwada Exp $
+
+# 2011-12-31 K.OHWADA
+# TYPE=MyISAM -> ENGINE=MyISAM
 
 # 2007-12-16 K.OHWADA
 # BUG : Duplicate column name 'permit'
@@ -37,7 +40,7 @@ CREATE TABLE whatsnew0_module (
   permit tinyint(2) unsigned NOT NULL default '0',
   PRIMARY KEY (id),
   KEY mid (mid)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Table structure for table `whatsnew0_config`
@@ -56,5 +59,5 @@ CREATE TABLE whatsnew0_config (
   aux_text_2 varchar(255) default '',
   PRIMARY KEY (id),
   KEY conf_id (conf_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
