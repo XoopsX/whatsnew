@@ -44,7 +44,7 @@ function _wordpress_new($mydirname, $limit=0, $offset=0)
 	$mydirnumber = $regs[2] === '' ? '' : intval( $regs[2] ) ;
 
 	global $xoopsDB;
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$url_mod = XOOPS_URL."/modules/".$mydirname;
 

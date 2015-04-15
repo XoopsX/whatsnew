@@ -39,7 +39,7 @@ function bulletin_new_base($mydirname, $mydirnumber, $limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 // DB table name
 	$table_stories  = $xoopsDB->prefix( "bulletin{$mydirnumber}_stories" ) ;

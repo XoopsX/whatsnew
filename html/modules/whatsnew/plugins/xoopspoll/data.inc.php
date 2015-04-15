@@ -15,7 +15,7 @@ function xoopspoll_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$VALID_TIME_AFTER_END = 604800;	// 7 days
 

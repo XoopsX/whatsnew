@@ -36,7 +36,7 @@ if( ! function_exists( 'weblog_new_base' ) ) {
 
 		global $xoopsUser, $xoopsDB, $xoopsConfig;
 
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 		$url_mod = XOOPS_URL."/modules/".$mydirname;
 

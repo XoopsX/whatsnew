@@ -12,7 +12,7 @@ function xlang_new( $limit=0, $offset=0 )
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$MOD_URL = XOOPS_URL.'/modules/xlang';
 

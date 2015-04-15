@@ -57,7 +57,7 @@ if( ! function_exists( 'nmblog_new_base' ) ) {
 	function nmblog_new_base( $mydirname, $limit=0, $offset=0 ) {
 
 		global $xoopsUser, $xoopsDB, $xoopsConfig;
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 		$currentuid = is_object($xoopsUser) ? $xoopsUser->getVar('uid','E') : 0;
 

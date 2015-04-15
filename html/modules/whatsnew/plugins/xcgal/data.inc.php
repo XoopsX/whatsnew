@@ -14,7 +14,7 @@
 function xcgal_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
  	$sql = "SELECT p.*, a.aid , a.title as atitle FROM ".$xoopsDB->prefix("xcgal_pictures")." p, ".$xoopsDB->prefix("xcgal_albums")." a WHERE p.aid=a.aid AND p.approved = 1 ORDER BY p.ctime DESC";
 

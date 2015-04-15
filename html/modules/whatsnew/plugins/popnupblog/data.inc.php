@@ -12,7 +12,7 @@ function popnupblog_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 	$popnupblogDirname = 'popnupblog';
 	$module_url = XOOPS_URL."/modules/".$popnupblogDirname;
 

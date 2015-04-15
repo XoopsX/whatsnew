@@ -3,10 +3,10 @@
 
 // === option begin ===
 $category_option = '';
-//É½¼¨¤¹¤ë¥«¥Æ¥´¥ê¡¼ÈÖ¹æ¤ò¥«¥ó¥Þ(,)¤Ç¶èÀÚ¤Ã¤Æµ­Æþ¡£¶õÍó¤Ê¤éÁ´¥«¥Æ¥´¥ê¡¼É½¼¨¡£
+//É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥«ï¿½Æ¥ï¿½ï¿½ê¡¼ï¿½Ö¹ï¿½ò¥«¥ï¿½ï¿½(,)ï¿½Ç¶ï¿½ï¿½Ú¤Ã¤Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¼É½ï¿½ï¿½ï¿½ï¿½
 
 $topic_option = '';
-//¶õÍó¤Ê¤é¥È¥Ô¥Ã¥¯Ëè¤ÎºÇ¿·Åê¹Æ¤òÉ½¼¨¡£1¤Ê¤éÁ´Åê¹Æ¤òÉ½¼¨¡£
+//ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½È¥Ô¥Ã¥ï¿½ï¿½ï¿½ÎºÇ¿ï¿½ï¿½ï¿½Æ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½1ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½
 // --- option end ---
 
 //================================================================
@@ -60,7 +60,7 @@ if (! function_exists('d3forum_whatsnew_base')) {
 		global $xoopsUser ;
 
 		$db =& Database::getInstance();
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 		$uid = is_object( @$xoopsUser ) ? $xoopsUser->getVar( 'uid' ) : 0 ;
 
 		$module_handler =& xoops_gethandler( 'module' );

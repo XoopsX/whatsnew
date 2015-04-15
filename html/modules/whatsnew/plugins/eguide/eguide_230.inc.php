@@ -12,7 +12,7 @@ function eguide_new( $limit=0, $offset=0 )
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$URL_MOD = XOOPS_URL."/modules/eguide";
 

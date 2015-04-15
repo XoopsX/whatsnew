@@ -18,7 +18,7 @@ function xoopsfaq_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 //	$sql = "SELECT * FROM ".$xoopsDB->prefix("xoopsfaq_contents")." WHERE contents_visible=1 ORDER BY contents_time DESC";
 

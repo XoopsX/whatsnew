@@ -19,7 +19,7 @@ function x_movie_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$sql  = "SELECT l.*, l.title as ltitle, c.title as ctitle , t.description ";
 	$sql .= "FROM ".$xoopsDB->prefix("x_movie")." l, ";

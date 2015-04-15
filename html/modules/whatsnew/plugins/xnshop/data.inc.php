@@ -15,7 +15,7 @@ function xnshop_new($limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$sql = "SELECT l.lid, l.cid, l.name as lname, l.submitter, l.updated, l.hits, t.description1 as tdescription1, c.title as cname FROM ".$xoopsDB->prefix("xnshop_links")." l, ".$xoopsDB->prefix("xnshop_options")." t, ".$xoopsDB->prefix("xnshop_cat")." c WHERE t.lid=l.lid AND l.cid=c.cid AND l.status>0 ORDER BY l.updated DESC";
 

@@ -67,7 +67,7 @@ function piCal_new_base($mydirname, $mydirnumber, $limit=0, $offset=0)
 	$table_event = $xoopsDB->prefix("pical{$mydirnumber}_event");
 	$table_cat   = $xoopsDB->prefix("pical{$mydirnumber}_cat");
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 // use piCal class
 // defining class of piCal

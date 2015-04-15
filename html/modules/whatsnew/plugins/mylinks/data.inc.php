@@ -22,7 +22,7 @@ function mylinks_new($limit=0, $offset=0)
 	global $xoopsDB;
 
 // bug fix: forget to declare $myts
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 //	$sql = "SELECT l.lid, l.title, l.date, t.description FROM ".$xoopsDB->prefix("mylinks_links")." l LEFT JOIN ".$xoopsDB->prefix("mylinks_text")." t ON t.lid=l.lid WHERE status>0 ORDER BY l.date DESC";
 

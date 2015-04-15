@@ -10,7 +10,7 @@
 
 function mailbbs_new($maxtopic, $offset=0)
 {
-	// ÀßÄêÆÉ¤ß¹þ¤ß
+	// ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß¹ï¿½ï¿½ï¿½
 	include (XOOPS_ROOT_PATH.'/modules/mailbbs/'."config.php");
 	$logfile = preg_replace("#^\./data/#","",$log);
 	
@@ -18,8 +18,8 @@ function mailbbs_new($maxtopic, $offset=0)
 	$file = @file(XOOPS_ROOT_PATH.'/modules/mailbbs/data/'.$logfile);
 	$recent = array_map('rtrim',$file);
 	
-	// XOOPS¥µ¥Ë¥¿¥¤¥¶
-	$myts =& MyTextSanitizer::getInstance();
+	// XOOPSï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ï¿½ï¿½ï¿½
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 	
 	$page = 0;
 	foreach ($recent as $line)
@@ -28,30 +28,30 @@ function mailbbs_new($maxtopic, $offset=0)
 		
 		$elems = array_pad(explode("<>",trim($line)),8,"");
 		
-		if ($elems[7]) continue; //Ì¤¾µÇ§
+		if ($elems[7]) continue; //Ì¤ï¿½ï¿½Ç§
 		
 		$id = $elems[0];
 		$time = $elems[1];
 		$title = $elems[2];
 		
-		// ¥³¥á¥ó¥È·ï¿ô
+		// ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½
 		$c_count = count(explode("</>",$elems[6])) - 1;
 		
-		// Åê¹Æ¼ÔÌ¾Ãê½Ð(ÂÐ±þ¤¹¤ë¤Ë¤Ï WhatsNew ËÜÂÎ¤Ë²þÂ¤¤¬É¬Í×)
+		// ï¿½ï¿½Æ¼ï¿½Ì¾ï¿½ï¿½ï¿½(ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ WhatsNew ï¿½ï¿½ï¿½Î¤Ë²ï¿½Â¤ï¿½ï¿½É¬ï¿½ï¿½)
 		$uname = (preg_match("/by\s+(.+)$/",$elems[4],$match))? $match[1] : "";
 		
-		// ºÇ¿·¥³¥á¥ó¥È¤¬¤¢¤ì¤Ð¾å½ñ¤­
+		// ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½
 		if(preg_match("/([^>]*)\t(?:[^\t]*)([\d]{10})<\/>$/",$elems[6],$match))
 		{
 			$uname = $match[1];
 			$time = $match[2];
 		}
 		
-		// ËÜÊ¸¥Ç¡¼¥¿À°·Á
+		// ï¿½ï¿½Ê¸ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		$body = $elems[4];
 		$body = $myts->displayTarea(str_replace(array("&lt;","&gt;","<br />"),array("<",">","\n"),$body));
 		
-		// ¥³¥á¥ó¥È
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		$comments = $elems[6];
 		if ($comments)
 		{
@@ -75,7 +75,7 @@ function mailbbs_new($maxtopic, $offset=0)
 		//$elems[6] = str_replace(array("&lt;","&gt;"),array("<",">"),$elems[6]);
 		//$elems[6] = preg_replace("/[\d]{10}<\/>/","<br>\n",$elems[6]);
 		
-		// ¥¤¥á¡¼¥¸¤Î¥µ¥¤¥º
+		// ï¿½ï¿½ï¿½á¡¼ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¿½
 		if ($elems[5])
 		{
 			$image = 

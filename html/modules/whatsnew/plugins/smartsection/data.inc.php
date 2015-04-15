@@ -30,7 +30,7 @@ function smartsection_new($limit=0, $offset=0)
 	$CATEGORYID = -1;
 	$SORT       = 'datesub';
 
-	$myts = &MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = &MyTextSanitizer::getInstance();
 
 	$smartModule =& smartsection_getModuleInfo();
 

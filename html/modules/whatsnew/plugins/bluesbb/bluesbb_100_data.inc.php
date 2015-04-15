@@ -23,7 +23,7 @@ function bluesbb_new($limit=0, $offset=0)
 	$URL_MOD = XOOPS_URL."/modules/bluesbb";
 
 	$db =& Database::getInstance();
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 // recent data
 	$i = 0;

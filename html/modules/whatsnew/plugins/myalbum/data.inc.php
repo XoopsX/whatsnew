@@ -53,7 +53,7 @@ function myalbum_new_base($mydirname, $mydirnumber, $limit=0, $offset=0)
 	$SHOW_SUBSTITUTE = false;
 
 	global $xoopsDB ;
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$MOD_PATH = XOOPS_ROOT_PATH .'/modules/'. $mydirname;
 	$MOD_URL  = XOOPS_URL       .'/modules/'. $mydirname;

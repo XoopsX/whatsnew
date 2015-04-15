@@ -27,7 +27,7 @@ function newbb_new($limit=0, $offset=0)
 	static $newbbConfig, $access_forums;
 
 	$db = &Database::getInstance();
-	$myts = &MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = &MyTextSanitizer::getInstance();
 	$block = array();
 	$i = 0;
 
@@ -85,7 +85,7 @@ function newbb_new($limit=0, $offset=0)
 		$ret[$i]['id']       = $post_id;
 
 // description
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 		$html   = 0;
 		$smiley = 0;

@@ -24,7 +24,7 @@ function wfdownloads_new($limit=0, $offset=0)
 
 	$URL_MOD = XOOPS_URL."/modules/wfdownloads";
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$table_downloads = $xoopsDB->prefix('wfdownloads_downloads');
 	$table_cat       = $xoopsDB->prefix('wfdownloads_cat');

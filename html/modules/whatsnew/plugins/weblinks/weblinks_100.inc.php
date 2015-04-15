@@ -53,7 +53,7 @@ function weblinks_base_new($dirname, $limit=0, $offset=0)
 {
 	global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
 	$weblinks_url = XOOPS_URL.'/modules/'.$dirname;
 	$table_link     = $xoopsDB->prefix( $dirname.'_link' );

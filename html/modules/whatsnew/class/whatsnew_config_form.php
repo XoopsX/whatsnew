@@ -41,7 +41,7 @@ function Whatsnew_Config_Form()
 // class
 	$this->_config_handler =& Whatsnew_Config_Handler::getInstance();
 	$this->_class_block    =& Whatsnew_Show_Block::getInstance();
-	$this->_myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts =& MyTextSanitizer::sGetInstance()) || $this->_myts =& MyTextSanitizer::getInstance();
 }
 
 public static function &getInstance()

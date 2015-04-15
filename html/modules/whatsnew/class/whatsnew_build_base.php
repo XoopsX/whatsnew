@@ -69,7 +69,7 @@ function Whatsnew_Build_Base()
 // class
 	$this->_class_block =& Whatsnew_Show_Block::getInstance();
 	$this->_class_lang  =& Whatsnew_Lang_Conv::getInstance();
-	$this->_myts        =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts =& MyTextSanitizer::sGetInstance()) || $this->_myts        =& MyTextSanitizer::getInstance();
 
 // variable
 	$this->set_cache_time(0);	// no cache

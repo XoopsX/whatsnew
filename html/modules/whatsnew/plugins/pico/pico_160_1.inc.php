@@ -3,7 +3,7 @@
 
 // === option begin ===
 $category_option = '';
-//•\Ž¦‚·‚éƒJƒeƒSƒŠ[”Ô†‚ðƒJƒ“ƒ}(,)‚Å‹æØ‚Á‚Ä‹L“üB‹ó—“‚È‚ç‘SƒJƒeƒSƒŠ[•\Ž¦B
+//ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½eï¿½Sï¿½ï¿½ï¿½[ï¿½Ôï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½}(,)ï¿½Å‹ï¿½Ø‚ï¿½ï¿½Ä‹Lï¿½ï¿½ï¿½Bï¿½ó—“‚È‚ï¿½Sï¿½Jï¿½eï¿½Sï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½ï¿½B
 // --- option end ---
 
 //================================================================
@@ -63,7 +63,7 @@ if (! function_exists('pico_whatsnew_base')) {
 		global $xoopsUser ;
 
 		$db =& Database::getInstance() ;
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 		$uid = is_object( @$xoopsUser ) ? $xoopsUser->getVar('uid') : 0 ;
 
 		$module_handler =& xoops_gethandler('module');

@@ -48,7 +48,7 @@ if( ! function_exists( 'tinyd_new_base' ) ) {
 function tinyd_new_base( $mydirname, $mydirnumber, $mymodpath, $mymoddir, $limit=0, $offset=0 )
 {
 
-//	$myts =& MyTextSanitizer::getInstance() ;
+//	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 	global $xoopsConfig;
 	$db =& Database::getInstance() ;
 

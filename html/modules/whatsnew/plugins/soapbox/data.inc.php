@@ -12,7 +12,7 @@ function soapbox_new($limit=0, $offset=0)
 {
     global $xoopsDB;
 
-	$myts =& MyTextSanitizer::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
     $sql = "SELECT articleid, headline, datesub, counter, bodytext FROM " . $xoopsDB->prefix( 'sbarticles' ) . " ORDER BY datesub DESC";
 
