@@ -76,7 +76,7 @@ function whatsnew_rss_builder( $dirname )
 	$this->set_cache_time_guest( $this->_get_conf('rss_cache_time') );
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

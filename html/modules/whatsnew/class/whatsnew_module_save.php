@@ -35,7 +35,7 @@ function Whatsnew_Module_Save()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

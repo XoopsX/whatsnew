@@ -21,7 +21,7 @@ function Whatsnew_Image_Size()
 // dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

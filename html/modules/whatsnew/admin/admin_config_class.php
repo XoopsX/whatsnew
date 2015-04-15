@@ -104,7 +104,7 @@ function admin_config_form()
 	$this->load();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 
@@ -793,7 +793,7 @@ function admin_config_store()
 	$this->_install              =& whatsnew_install::getInstance(       WHATSNEW_DIRNAME );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

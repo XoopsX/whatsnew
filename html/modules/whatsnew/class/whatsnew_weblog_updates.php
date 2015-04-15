@@ -43,7 +43,7 @@ function Whatsnew_Weblog_Updates()
 	$this->set_encode("ISO-8859-1");
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

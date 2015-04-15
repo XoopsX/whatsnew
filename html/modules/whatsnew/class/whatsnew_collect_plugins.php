@@ -88,7 +88,7 @@ function whatsnew_collect_plugins( $dirname )
 	$this->_init_permit();
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

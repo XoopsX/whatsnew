@@ -25,7 +25,7 @@ function Whatsnew_Config_Save()
 	$this->_config_handler =& Whatsnew_Config_Handler::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

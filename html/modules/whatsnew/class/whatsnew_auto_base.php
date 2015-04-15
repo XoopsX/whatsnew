@@ -39,7 +39,7 @@ function Whatsnew_Auto_Base()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

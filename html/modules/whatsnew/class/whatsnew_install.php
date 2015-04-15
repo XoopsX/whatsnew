@@ -41,7 +41,7 @@ function whatsnew_install( $dirname )
 	$this->_module_table = $this->prefix( $dirname.'_module' );
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

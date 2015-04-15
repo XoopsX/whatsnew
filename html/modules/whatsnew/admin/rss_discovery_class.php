@@ -52,7 +52,7 @@ function whatsnew_rss_discovery()
 	$this->_utility->set_template_atom( $TEMPLATE_ATOM );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

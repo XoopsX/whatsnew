@@ -54,7 +54,7 @@ function whatsnew_ping( $dirname )
 	$this->_conf =& $this->_config_handler->get_conf();
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

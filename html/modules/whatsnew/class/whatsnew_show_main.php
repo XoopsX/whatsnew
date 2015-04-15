@@ -49,7 +49,7 @@ function whatsnew_show_main( $dirname )
 	$this->_locate =& happy_linux_locate_factory::getInstance();
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

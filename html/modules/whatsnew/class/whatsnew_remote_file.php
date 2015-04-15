@@ -46,7 +46,7 @@ function Whatsnew_Remote_File()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

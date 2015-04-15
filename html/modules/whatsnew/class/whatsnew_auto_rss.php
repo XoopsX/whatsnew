@@ -26,7 +26,7 @@ function Whatsnew_Auto_Rss()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

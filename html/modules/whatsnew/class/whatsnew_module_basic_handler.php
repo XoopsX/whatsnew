@@ -35,7 +35,7 @@ function whatsnew_module_basic_handler( $dirname )
 	$this->_load_once();
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

@@ -80,7 +80,7 @@ function Whatsnew_Build_Base()
 	$this->_set_is_user();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

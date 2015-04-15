@@ -29,7 +29,7 @@ function Whatsnew_Build_Rdf()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

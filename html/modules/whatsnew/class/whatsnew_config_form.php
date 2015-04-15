@@ -44,7 +44,7 @@ function Whatsnew_Config_Form()
 	$this->_myts =& MyTextSanitizer::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

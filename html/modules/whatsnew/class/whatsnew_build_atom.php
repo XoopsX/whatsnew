@@ -31,7 +31,7 @@ function Whatsnew_Build_Atom()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

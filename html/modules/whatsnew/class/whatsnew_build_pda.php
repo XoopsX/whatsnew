@@ -26,7 +26,7 @@ function Whatsnew_Build_Pda()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 
