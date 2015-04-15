@@ -17,8 +17,8 @@
 // --- define version begin ---
 if( !defined('_WHATSNEW_VERSION') ) 
 {
-	define('_WHATSNEW_VERSION', '2.60');
-	define('_WHATSNEW_HAPPY_LINUX_VERSION', '1.60');
+	define('_WHATSNEW_VERSION', '2.61');
+	define('_WHATSNEW_HAPPY_LINUX_VERSION', '1.82');
 }
 // --- define version end ---
 
