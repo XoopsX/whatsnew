@@ -10,7 +10,7 @@
 
 function mailbbs_new($maxtopic, $offset=0)
 {
-	// �����ɤ߹���
+	// 設定読み込み
 	include (XOOPS_ROOT_PATH.'/modules/mailbbs/'."config.php");
 	$logfile = preg_replace("#^\./data/#","",$log);
 	
@@ -18,7 +18,7 @@ function mailbbs_new($maxtopic, $offset=0)
 	$file = @file(XOOPS_ROOT_PATH.'/modules/mailbbs/data/'.$logfile);
 	$recent = array_map('rtrim',$file);
 	
-	// XOOPS���˥�����
+	// XOOPSサニタイザ
 	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 	
 	$page = 0;
@@ -34,24 +34,24 @@ function mailbbs_new($maxtopic, $offset=0)
 		$time = $elems[1];
 		$title = $elems[2];
 		
-		// �����ȷ��
+		// コメント件数
 		$c_count = count(explode("</>",$elems[6])) - 1;
 		
-		// ��Ƽ�̾���(�б�����ˤ� WhatsNew ���Τ˲�¤��ɬ��)
+		// 投稿者名抽出(対応するには WhatsNew 本体に改造が必要)
 		$uname = (preg_match("/by\s+(.+)$/",$elems[4],$match))? $match[1] : "";
 		
-		// �ǿ������Ȥ�����о��
+		// 最新コメントがあれば上書き
 		if(preg_match("/([^>]*)\t(?:[^\t]*)([\d]{10})<\/>$/",$elems[6],$match))
 		{
 			$uname = $match[1];
 			$time = $match[2];
 		}
 		
-		// ��ʸ�ǡ�������
+		// 本文データ整形
 		$body = $elems[4];
 		$body = $myts->displayTarea(str_replace(array("&lt;","&gt;","<br />"),array("<",">","\n"),$body));
 		
-		// ������
+		// コメント
 		$comments = $elems[6];
 		if ($comments)
 		{
@@ -75,7 +75,7 @@ function mailbbs_new($maxtopic, $offset=0)
 		//$elems[6] = str_replace(array("&lt;","&gt;"),array("<",">"),$elems[6]);
 		//$elems[6] = preg_replace("/[\d]{10}<\/>/","<br>\n",$elems[6]);
 		
-		// ���᡼���Υ�����
+		// イメージのサイズ
 		if ($elems[5])
 		{
 			$image = 
