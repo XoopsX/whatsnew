@@ -115,7 +115,7 @@ function piCal_new_base($mydirname, $mydirnumber, $limit=0, $offset=0)
 		$ret[$i] = array();
 
 		$id = $row1['id'];
-		$cid_arr_1 = split(',', $row1['categories']);
+		$cid_arr_1 = explode(',', $row1['categories']);
 
 // remove garbage 
 		$cid_arr_2 = array();

@@ -50,7 +50,7 @@ function atom_start_element($parser, $name, $attrs)
 	if ($parent_num_prev < 0)  $parent_num_prev = 0;
 	$parent_prev = $atom_parent[$parent_num_prev];
 
-	$name_ns = split(':',$name);
+	$name_ns = explode(':',$name);
 	$name_wk = array_pop($name_ns);
 	$uri1 = implode($name_ns,":");
 
@@ -169,7 +169,7 @@ function atom_end_element($parser, $name)
 	if ($parent_num_prev < 0)  $parent_num_prev = 0;
 	$parent_prev = $atom_parent[$parent_num_prev];
 
-	$name_ns = split(':',$name);
+	$name_ns = explode(':',$name);
 	$name_wk = array_pop($name_ns);
 	$uri1 = implode($name_ns,":");
 

@@ -43,7 +43,7 @@ function yomi_new($limit=0, $offset=0)
 	while( $row = $xoopsDB->fetchArray($result) )
 	{
 		$id = $row['id'];
-		$cat_key  = split('&',$row['category']);
+		$cat_key  = explode('&',$row['category']);
 		$cat_id   = $cat_key[1];
 
 		$cat_name = '';

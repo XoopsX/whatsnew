@@ -254,7 +254,7 @@ function stripHttp($data='')
 	// separate HTTP headers from data
 	if (preg_match("/^HTTP/i", $data))
 	{
-		$ar = split("\r\n", $data);
+		$ar = explode("\r\n", $data);
 		while (($line = array_shift($ar)))
 		{
 			if (strlen($line) < 1)
