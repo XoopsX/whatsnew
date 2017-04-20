@@ -301,7 +301,7 @@ if (! function_exists('pico_whatsnew_filter_body')) {
 					}
 				}
 				require_once XOOPS_TRUST_PATH.'/modules/pico/class/pico.textsanitizer.php' ;
-				$myts =& PicoTextSanitizer::getInstance() ;
+				$myts = method_exists( 'PicoTextSanitizer', 'sGetInstance' ) ? PicoTextSanitizer::sGetInstance() : PicoTextSanitizer::getInstance() ;
 				$text = $myts->displayTarea( $text , 1 , $smiley , 1 , 1 , $nl2br ) ;
 				continue ;
 			}
