@@ -47,6 +47,7 @@ include_once $WHATSNEW_ROOT_PATH.'/include/whatsnew_version.php';
 
 $modversion['name']    = _MI_WHATSNEW_NAME.$name_ext;
 $modversion['version'] = _WHATSNEW_VERSION;
+$modversion['detailed_version'] = _WHATSNEW_VERSION . '.1';
 $modversion['description'] = _MI_WHATSNEW_DESC;
 $modversion['credits']  = '';
 $modversion['author']   = 'K.OHWADA';
